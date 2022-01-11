@@ -4,6 +4,7 @@ namespace LaravelAnnotation;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\ControllerMiddlewareOptions;
+use LaravelAnnotation\Attribute\Middleware;
 use ReflectionAttribute;
 use ReflectionClass;
 

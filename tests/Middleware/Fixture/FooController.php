@@ -3,8 +3,8 @@
 namespace Tests\Middleware\Fixture;
 
 use Illuminate\Http\Request;
+use LaravelAnnotation\Attribute\Middleware;
 use LaravelAnnotation\BaseController;
-use LaravelAnnotation\Middleware;
 
 #[Middleware('one', except: 'store')]
 #[Middleware('six', only: ['store', 'update'])]

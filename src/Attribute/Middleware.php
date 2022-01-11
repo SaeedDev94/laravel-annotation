@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelAnnotation;
+namespace LaravelAnnotation\Attribute;
 
 use Attribute;
 
