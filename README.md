@@ -28,7 +28,7 @@ Here is an example that how you can use `Middleware` attribute in a laravel cont
 
 use LaravelAnnotation\Attribute\Middleware;
 
-#[Middleware(Guest::class, except: 'logout')]
+#[Middleware(RedirectIfAuthenticated::class, 'sanctum', except: 'logout')]
 class AuthController extends Controller
 {
     public function register()
