@@ -16,7 +16,8 @@ $ composer require saeedpooyanfar/laravel-annotation
 ### Setup
 
 In `App\Http\Controllers\Controller::class` :  
-Replace `use Illuminate\Routing\Controller as BaseController;` with `use LaravelAnnotation\BaseController;`
+Replace `use Illuminate\Routing\Controller as BaseController;`  
+With `use LaravelAnnotation\BaseController;`
 
 ### Middleware attribute
 
