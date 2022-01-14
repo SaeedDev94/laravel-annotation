@@ -1,4 +1,4 @@
-# LaravelAnnotation
+# Laravel #[Annotation]
 
 ### Introduction
 
@@ -10,7 +10,7 @@ PHP 8.1 brings even more exciting features like [`Enumerations`](https://www.php
 ### Installing
 
 ```bash
-$ composer require saeedpooyanfar/laravel-annotation
+composer require saeedpooyanfar/laravel-annotation
 ```
 
 ### Setup

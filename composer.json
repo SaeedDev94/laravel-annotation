@@ -1,6 +1,6 @@
 {
     "name": "saeedpooyanfar/laravel-annotation",
-    "description": "Laravel annotations",
+    "description": "Laravel #[Annotation]",
     "version": "2.0.0",
     "type": "library",
     "require": {
