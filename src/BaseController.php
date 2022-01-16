@@ -55,13 +55,13 @@ class BaseController extends Controller
 
         $class = new ReflectionClass($this);
 
-        // Class
-        $push($class->getAttributes(Middleware::class));
-
         // Methods
         foreach ($class->getMethods() as $method) {
             $push($method->getAttributes(Middleware::class), $method->name);
         }
+
+        // Class
+        $push($class->getAttributes(Middleware::class));
 
         return $middlewares;
     }

@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use LaravelAnnotation\Attribute\Middleware;
 use LaravelAnnotation\BaseController;
 
-#[Middleware('one', except: 'store')]
+#[Middleware('three', except: 'store')]
 #[Middleware('six', only: ['store', 'update'])]
 class FooController extends BaseController
 {
-    #[Middleware('two')]
-    #[Middleware('three', ['arg1', 'arg2'])]
+    #[Middleware('one')]
+    #[Middleware('two', ['arg1', 'arg2'])]
     public function index()
     {
     }

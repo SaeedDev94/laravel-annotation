@@ -39,7 +39,7 @@ class MiddlewareTest extends TestCase
         $route = $this->getRoute('GET');
 
         $this->assertNotEquals(false, $route);
-        $this->assertEquals(['one', 'two', 'three:arg1,arg2'], $route->gatherMiddleware());
+        $this->assertEquals(['one', 'two:arg1,arg2', 'three'], $route->gatherMiddleware());
     }
 
     public function testStoreMiddleware(): void
@@ -47,7 +47,7 @@ class MiddlewareTest extends TestCase
         $route = $this->getRoute('POST');
 
         $this->assertNotEquals(false, $route);
-        $this->assertEquals(['six', 'four', 'five:arg'], $route->gatherMiddleware());
+        $this->assertEquals(['four', 'five:arg', 'six'], $route->gatherMiddleware());
     }
 
     public function testUpdateMiddleware(): void
@@ -55,7 +55,7 @@ class MiddlewareTest extends TestCase
         $route = $this->getRoute('PUT');
 
         $this->assertNotEquals(false, $route);
-        $this->assertEquals(['one', 'six'], $route->gatherMiddleware());
+        $this->assertEquals(['three', 'six'], $route->gatherMiddleware());
     }
 
     public function testDestroyMiddleware(): void
@@ -63,7 +63,7 @@ class MiddlewareTest extends TestCase
         $route = $this->getRoute('DELETE');
 
         $this->assertNotEquals(false, $route);
-        $this->assertEquals(['classic', 'one'], $route->gatherMiddleware());
+        $this->assertEquals(['classic', 'three'], $route->gatherMiddleware());
     }
 
     public function getRoute(string $method): Route | bool
