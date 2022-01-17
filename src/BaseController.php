@@ -17,7 +17,7 @@ class BaseController extends Controller
      */
     public function getMiddleware(): array
     {
-        return [...$this->middleware, ...$this->getMiddlewaresByAttributes()];
+        return array_merge($this->middleware, $this->getMiddlewaresByAttributes());
     }
 
     /**
