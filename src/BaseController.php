@@ -37,11 +37,19 @@ class BaseController extends Controller
                 /** @var Middleware $middleware */
                 $middleware = $attribute->newInstance();
 
+                $arguments = [];
+                if ($middleware->arguments) {
+                    foreach ((array) $middleware->arguments as $argument) {
+                        if (gettype($argument) === 'string') $arguments[] = $argument;
+                        if (gettype($argument) === 'array') $arguments[] = implode('|', $argument);
+                    }
+                }
+
                 $name = $middleware->name;
-                $arguments = $middleware->arguments ? ':'.implode(',', (array) $middleware->arguments) : '';
+                if ($arguments) $name .= ':'.implode(',', $arguments);
 
                 $middlewares[] = [
-                    'middleware' => $name.$arguments,
+                    'middleware' => $name,
                     'options' => &$middleware->options
                 ];
 

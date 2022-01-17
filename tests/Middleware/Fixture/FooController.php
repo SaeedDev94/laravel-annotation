@@ -26,6 +26,7 @@ class FooController extends BaseController
     {
     }
 
+    #[Middleware('multiple', ['arg1', ['arg2-1', 'arg2-2']])]
     public function destroy(Request $request, string $id)
     {
     }

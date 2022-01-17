@@ -63,7 +63,7 @@ class MiddlewareTest extends TestCase
         $route = $this->getRoute('DELETE');
 
         $this->assertNotEquals(false, $route);
-        $this->assertEquals(['classic', 'three'], $route->gatherMiddleware());
+        $this->assertEquals(['classic', 'multiple:arg1,arg2-1|arg2-2', 'three'], $route->gatherMiddleware());
     }
 
     public function getRoute(string $method): Route | bool
