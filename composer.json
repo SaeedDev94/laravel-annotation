@@ -1,7 +1,7 @@
 {
     "name": "saeedpooyanfar/laravel-annotation",
     "description": "Laravel #[Annotation]",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "type": "library",
     "require": {
         "php": "^8.0"
