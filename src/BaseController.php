@@ -43,20 +43,20 @@ class BaseController extends Controller
                 is_scalar($props['value']);
         };
 
-        /** @returns  string[] $getItems */
-        $getItems = function (array $input) use ($isEnum): array {
+        /** @return string[] */
+        $filterArguments = function (array $arguments) use ($isEnum): array {
             $items = [];
 
-            foreach ($input as $item) {
-                if (gettype($item) === 'string') $items[] = $item;
-                if ($isEnum($item)) $items[] = (string) $item->value;
+            foreach ($arguments as $argument) {
+                if (gettype($argument) === 'string') $items[] = $argument;
+                if ($isEnum($argument)) $items[] = (string) $argument->value;
             }
 
             return $items;
         };
 
         /** @var ReflectionAttribute[] $attributes */
-        $push = function (array $attributes, ?string $method = null) use (&$middlewares, $getItems) {
+        $push = function (array $attributes, ?string $method = null) use (&$middlewares, $filterArguments) {
             foreach ($attributes as $attribute) {
                 /** @var Middleware $middleware */
                 $middleware = $attribute->newInstance();
@@ -64,10 +64,10 @@ class BaseController extends Controller
                 $arguments = [];
                 if (gettype($middleware->arguments) !== 'array') $middleware->arguments = [$middleware->arguments];
                 foreach ($middleware->arguments as $argument) {
-                    if (gettype($argument) === 'array' && $items = $getItems($argument)) {
+                    if (gettype($argument) === 'array' && $items = $filterArguments($argument)) {
                         $arguments[] = implode('|', $items);
                     }
-                    elseif ($item = $getItems([$argument])[0] ?? null) $arguments[] = $item;
+                    elseif ($item = $filterArguments([$argument])[0] ?? null) $arguments[] = $item;
                 }
 
                 $name = $middleware->name;
