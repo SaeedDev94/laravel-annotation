@@ -9,11 +9,11 @@ class Middleware
 {
     /**
      * @param string $name
-     * @param string|string[] $arguments
+     * @param string|object|string[]|object[] $arguments
      * @param string|string[] $only
      * @param string|string[] $except
      */
-    function __construct(public string $name, public string | array $arguments = [], public string | array $only = [], public string | array $except = [])
+    function __construct(public string $name, public string | object | array $arguments = [], public string | array $only = [], public string | array $except = [])
     {
     }
 
