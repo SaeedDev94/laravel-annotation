@@ -60,14 +60,17 @@ class BaseController extends Controller
             foreach ($attributes as $attribute) {
                 /** @var Middleware $middleware */
                 $middleware = $attribute->newInstance();
-
                 $arguments = [];
-                if (gettype($middleware->arguments) !== 'array') $middleware->arguments = [$middleware->arguments];
+
+                if (!is_array($middleware->arguments)) {
+                    $middleware->arguments = [$middleware->arguments];
+                }
+
                 foreach ($middleware->arguments as $argument) {
-                    if (gettype($argument) === 'array' && $items = $filterArguments($argument)) {
-                        $arguments[] = implode('|', $items);
+                    $items = $filterArguments(is_array($argument) ? $argument : [$argument]);
+                    if ($items) {
+                        $arguments[] = is_array($argument) ? implode('|', $items) : $items[0];
                     }
-                    elseif ($item = $filterArguments([$argument])[0] ?? null) $arguments[] = $item;
                 }
 
                 $name = $middleware->name;
