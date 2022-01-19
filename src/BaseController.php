@@ -48,8 +48,8 @@ class BaseController extends Controller
             $items = [];
 
             foreach ($arguments as $argument) {
-                if (gettype($argument) === 'string') $items[] = $argument;
-                if ($isEnum($argument)) $items[] = (string) $argument->value;
+                if (is_string($argument) && $argument !== '') $items[] = $argument;
+                if ($isEnum($argument) && $argument->value !== '') $items[] = (string) $argument->value;
             }
 
             return $items;
