@@ -39,8 +39,8 @@ class BaseController extends Controller
                 count($props) === 2 &&
                 isset($props['name']) &&
                 isset($props['value']) &&
-                is_scalar($props['name']) &&
-                is_scalar($props['value']);
+                is_string($props['name']) &&
+                (is_string($props['value']) || is_numeric($props['value']));
         };
 
         /** @return string[] */
