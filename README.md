@@ -22,7 +22,7 @@ With `use LaravelAnnotation\BaseController;`
 or use the trait on your base controller
 
 `app/Http/Controllers/Controller.php`
-```
+```php
 <?php
 use LaravelAnnotation\AttributeMiddleware;
 
