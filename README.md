@@ -19,6 +19,18 @@ In `App\Http\Controllers\Controller::class` :
 Replace `use Illuminate\Routing\Controller as BaseController;`  
 With `use LaravelAnnotation\BaseController;`
 
+or use the trait on your base controller
+
+app/Http/Controllers/Controller.php
+```
+use LaravelAnnotation\AttributeMiddleware;
+
+class Controller extends BaseController
+{
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, AttributeMiddleware;
+}
+```
+
 ### Middleware attribute
 
 Here is an example that how you can use `Middleware` attribute in a laravel controller:
