@@ -21,8 +21,9 @@ With `use LaravelAnnotation\BaseController;`
 
 or use the trait on your base controller
 
-app/Http/Controllers/Controller.php
+`app/Http/Controllers/Controller.php`
 ```
+<?php
 use LaravelAnnotation\AttributeMiddleware;
 
 class Controller extends BaseController
