@@ -1,4 +1,5 @@
 <?php
+
 namespace LaravelAnnotation;
 
 use Illuminate\Routing\ControllerMiddlewareOptions;
@@ -8,7 +9,7 @@ use ReflectionClass;
 
 trait AttributeMiddleware
 {
-	/**
+    /**
      * Get the middleware assigned to the controller.
      *
      * @return array
