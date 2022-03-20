@@ -18,19 +18,11 @@ composer require saeedpooyanfar/laravel-annotation
 In `App\Http\Controllers\Controller::class` :  
 Replace `use Illuminate\Routing\Controller as BaseController;`  
 With `use LaravelAnnotation\BaseController;`
-
-or use the trait on your base controller
-
-`app/Http/Controllers/Controller.php`
-```php
-<?php
-use LaravelAnnotation\AttributeMiddleware;
-
-class Controller extends BaseController
-{
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, AttributeMiddleware;
-}
-```
+  
+Or if you don't want to change your BaseController you can:  
+  
+Use `LaravelAnnotation\AttributeMiddleware` trait  
+In `App\Http\Controllers\Controller::class`
 
 ### Middleware attribute
 
