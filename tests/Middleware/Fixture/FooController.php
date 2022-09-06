@@ -3,9 +3,12 @@
 namespace Tests\Middleware\Fixture;
 
 use Illuminate\Http\Request;
+use LaravelAnnotation\Attribute\ClassMiddleware;
 use LaravelAnnotation\Attribute\Middleware;
 use LaravelAnnotation\BaseController;
 
+#[ClassMiddleware('first', only: 'update')]
+#[ClassMiddleware('second', except: ['index', 'destroy'])]
 #[Middleware('three', except: 'store')]
 #[Middleware('six', only: ['store', 'update'])]
 class FooController extends BaseController

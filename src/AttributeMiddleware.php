@@ -3,6 +3,7 @@
 namespace LaravelAnnotation;
 
 use Illuminate\Routing\ControllerMiddlewareOptions;
+use LaravelAnnotation\Attribute\ClassMiddleware;
 use LaravelAnnotation\Attribute\Middleware;
 use ReflectionAttribute;
 use ReflectionClass;
@@ -89,6 +90,9 @@ trait AttributeMiddleware
         };
 
         $class = new ReflectionClass($this);
+
+        // ClassMiddleware (Higher priority, before methods)
+        $push($class->getAttributes(ClassMiddleware::class));
 
         // Methods
         foreach ($class->getMethods() as $method) {

@@ -47,7 +47,7 @@ class MiddlewareTest extends TestCase
         $route = $this->getRoute('POST');
 
         $this->assertNotEquals(false, $route);
-        $this->assertEquals(['four', 'five:arg', 'six'], $route->gatherMiddleware());
+        $this->assertEquals(['second', 'four', 'five:arg', 'six'], $route->gatherMiddleware());
     }
 
     public function testUpdateMiddleware(): void
@@ -55,7 +55,7 @@ class MiddlewareTest extends TestCase
         $route = $this->getRoute('PUT');
 
         $this->assertNotEquals(false, $route);
-        $this->assertEquals(['three', 'six'], $route->gatherMiddleware());
+        $this->assertEquals(['first', 'second', 'three', 'six'], $route->gatherMiddleware());
     }
 
     public function testDestroyMiddleware(): void
