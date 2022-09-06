@@ -68,7 +68,7 @@ trait AttributeMiddleware
                 foreach ($middleware->arguments as $argument) {
                     $items = $filterArguments(is_array($argument) ? $argument : [$argument]);
                     if ($items) {
-                        $arguments[] = is_array($argument) ? implode('|', $items) : $items[0];
+                        $arguments[] = implode('|', $items);
                     }
                 }
 
