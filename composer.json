@@ -7,8 +7,8 @@
         "php": "^8.0"
     },
     "require-dev": {
-        "illuminate/routing": "^9.x-dev",
-        "illuminate/events": "^9.x-dev",
+        "illuminate/routing": "^9.x-dev|^10.0",
+        "illuminate/events": "^9.x-dev|^10.0",
         "phpunit/phpunit": "^9.5",
         "mockery/mockery": "^1.4"
     },
