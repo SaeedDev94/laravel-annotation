@@ -4,13 +4,13 @@
     "version": "3.4.0",
     "type": "library",
     "require": {
-        "php": "^8.0"
+        "php": "^8.1"
     },
     "require-dev": {
-        "illuminate/routing": "^9.x-dev|^10.0",
-        "illuminate/events": "^9.x-dev|^10.0",
-        "phpunit/phpunit": "^9.5",
-        "mockery/mockery": "^1.4"
+        "illuminate/routing": "^10.x-dev",
+        "illuminate/events": "^10.x-dev",
+        "phpunit/phpunit": "^10.0",
+        "mockery/mockery": "^1.5"
     },
     "license": "MIT",
     "autoload": {
@@ -29,6 +29,6 @@
             "email": "saeedp47@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
