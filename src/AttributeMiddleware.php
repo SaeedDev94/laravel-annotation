@@ -2,6 +2,7 @@
 
 namespace LaravelAnnotation;
 
+use BackedEnum;
 use Illuminate\Routing\ControllerMiddlewareOptions;
 use LaravelAnnotation\Attribute\ClassMiddleware;
 use LaravelAnnotation\Attribute\Middleware;
@@ -31,25 +32,13 @@ trait AttributeMiddleware
     {
         $middlewares = [];
 
-        $isEnum = function (mixed $obj): bool {
-            if (gettype($obj) !== 'object') return false;
-
-            $props = get_object_vars($obj);
-            return
-                count($props) === 2 &&
-                isset($props['name']) &&
-                isset($props['value']) &&
-                is_string($props['name']) &&
-                (is_string($props['value']) || is_numeric($props['value']));
-        };
-
         /** @return string[] */
-        $filterArguments = function (array $arguments) use ($isEnum): array {
+        $filterArguments = function (array $arguments): array {
             $items = [];
 
             foreach ($arguments as $argument) {
                 if (is_string($argument) && $argument !== '') $items[] = $argument;
-                if ($isEnum($argument) && $argument->value !== '') $items[] = (string) $argument->value;
+                if ($argument instanceof BackedEnum && $argument->value !== '') $items[] = (string) $argument->value;
             }
 
             return $items;
