@@ -18,7 +18,8 @@ trait AttributeMiddleware
      */
     public function getMiddleware(): array
     {
-        return array_merge($this->middleware, $this->getMiddlewaresByAttributes());
+        $middlewares = (new ReflectionClass($this))->getAttributes("middleware");
+        return array_merge($middlewares, $this->getMiddlewaresByAttributes());
     }
 
     /**
