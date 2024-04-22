@@ -1,16 +1,16 @@
 {
     "name": "saeedpooyanfar/laravel-annotation",
     "description": "Laravel #[Annotation]",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "type": "library",
     "require": {
-        "php": "^8.1"
+        "php": "^8.2"
     },
     "require-dev": {
-        "illuminate/routing": "^10.x-dev | ^11",
-        "illuminate/events": "^10.x-dev | ^11",
-        "phpunit/phpunit": "^10.0",
-        "mockery/mockery": "^1.5"
+        "illuminate/routing": "^11.x-dev",
+        "illuminate/events": "^11.x-dev",
+        "phpunit/phpunit": "^10.5",
+        "mockery/mockery": "^1.6"
     },
     "license": "MIT",
     "autoload": {
